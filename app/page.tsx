@@ -2,12 +2,15 @@ import Image from 'next/image';
 
 import { collection, doc, getDoc } from 'firebase/firestore';
 import db from './firebase/db';
+import { useCollection, useDoc } from './hooks/useFirestore';
 
 export default async function Home() {
-	const eyeshadow = await getDoc(doc(db, 'products/matte'));
-	const product = await getDoc(doc(db, eyeshadow.data()?.variants.path));
-	const products = await getDoc(doc(db, product.data()?.products[2].path));
-	console.log('START OF EYESHADOW \n', products.data());
+	const eyeshadow = await useDoc('products/matte');
+	const col = await useCollection('categories/eyeshadows/subcategories');
+	console.log(eyeshadow, col);
+	// const product = await useDoc(eyeshadow.variants.path);
+	// const products = await useDoc(product.products[2].path);
+	// console.log('START OF EYESHADOW \n', products);
 	return (
 		<main>
 			<div>
