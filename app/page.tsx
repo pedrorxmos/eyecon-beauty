@@ -1,6 +1,13 @@
 import Image from 'next/image';
 
-export default function Home() {
+import { collection, doc, getDoc } from 'firebase/firestore';
+import db from './firebase/db';
+
+export default async function Home() {
+	const eyeshadow = await getDoc(doc(db, 'products/matte'));
+	const product = await getDoc(doc(db, eyeshadow.data()?.variants.path));
+	const products = await getDoc(doc(db, product.data()?.products[2].path));
+	console.log('START OF EYESHADOW \n', products.data());
 	return (
 		<main>
 			<div>
