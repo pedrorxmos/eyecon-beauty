@@ -8,7 +8,7 @@ export default function Home() {
 			<Link href="/shop">Shop</Link>
 			<Link href="/shop/eyeshadow">Eyeshadow</Link>
 			<Link href="/shop/palettes">Palettes</Link>
-			<Icon />
+			<Icon name="shopping-bag" />
 		</main>
 	);
 }

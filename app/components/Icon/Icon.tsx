@@ -1,5 +1,10 @@
 import svgContent from './svg-content';
-export const Icon = () => {
+
+interface Icon {
+	name: string;
+}
+
+export const Icon = ({ name }: Icon) => {
 	return (
 		<>
 			<svg
@@ -12,9 +17,9 @@ export const Icon = () => {
 				stroke-width="2"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				className="feather feather-x"
+				className={`feather feather-${name}`}
 			>
-				{svgContent('arrow-up')}
+				{svgContent(name)}
 			</svg>
 		</>
 	);
