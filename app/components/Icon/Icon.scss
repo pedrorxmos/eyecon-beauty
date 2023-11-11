@@ -1,0 +1,33 @@
+.icon {
+	&.small {
+		width: 14px;
+		height: 14px;
+	}
+
+	&.medium {
+		width: 20px;
+		height: 20px;
+	}
+
+	&.xmedium {
+		width: 24px;
+		height: 24px;
+	}
+
+	&.large {
+		width: 32px;
+		height: 32px;
+	}
+
+	&.thin {
+		stroke-width: 1;
+	}
+
+	&.regular {
+		stroke-width: 1.5;
+	}
+
+	&.thick {
+		stroke-width: 2;
+	}
+}
