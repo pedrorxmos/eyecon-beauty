@@ -9,10 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # ( Build to ./dist or other directory... )
-
       - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v2.0
+        uses: nwtgck/actions-netlify@v2.1.0
         with:
           publish-dir: '/.next'
           production-branch: master
