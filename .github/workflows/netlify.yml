@@ -8,15 +8,15 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-
-      # ( Build to ./dist or other directory... )
-
+      - run: npm --version && node --version
+      - run: npm i
+      - run: npm run build
       - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v2.0
+        uses: nwtgck/actions-netlify@v2.1.0
         with:
           publish-dir: '.next'
-          production-branch: master
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          production-branch: main
+          github-token: ${{ secrets.GH_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
           enable-pull-request-comment: false
           enable-commit-comment: true
