@@ -11,7 +11,7 @@ jobs:
       - run: npm --version && node --version
       - run: npm i
       - run: npm run build
-      - name: Deploy to Netlify
+      - name: Netlify Actions
         uses: nwtgck/actions-netlify@v2.1.0
         with:
           publish-dir: '.next'
