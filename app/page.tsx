@@ -22,7 +22,7 @@ export default function Home() {
 			</Button>
 			<br />
 			<br />
-			<Button action={testAction} args="valueeee">
+			<Button action={testAction} args="valueeee" uppercase>
 				Test Action
 			</Button>
 		</main>

@@ -18,14 +18,15 @@ interface Button {
 	style?: string;
 	spaced?: boolean;
 	text?: boolean;
+	uppercase?: boolean;
 }
 
-export const Button = ({ children, link, action, args, href = '#', external, size = 'medium', type = 'main', style = 'fill', spaced, text }: Button) => {
+export const Button = ({ children, link, action, args, href = '#', external, size = 'medium', type = 'main', style = 'fill', spaced, text, uppercase }: Button) => {
 	const onClick = () => {
 		action!(args);
 	};
 
-	const className = `button ${size} ${type} ${style} ${text ? 'text-button' : ''} ${spaced ? 'spaced' : ''}`.trim().replaceAll(/\s+/g, ' ');
+	const className = `button ${size} ${type} ${style} ${text ? 'text-button' : ''} ${spaced ? 'spaced' : ''} ${uppercase ? 'uppercase' : ''}`.trim().replaceAll(/\s+/g, ' ');
 	return link ? (
 		<Link href={href} className={className} target={external ? '_blank' : '_self'}>
 			{children}
