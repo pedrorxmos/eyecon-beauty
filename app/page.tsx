@@ -14,11 +14,14 @@ export default function Home() {
 			<Link href="/shop/eyeshadow">Eyeshadow</Link>
 			<Link href="/shop/palettes">Palettes</Link>
 			<Icon name="shopping-bag" size="large" weight="thick" />
+			<br />
+			<br />
 			<Button link href="https://google.es" external>
 				<span>Add to cart</span>
 				<Icon name="plus" />
 			</Button>
-
+			<br />
+			<br />
 			<Button action={testAction} args="valueeee">
 				Test Action
 			</Button>
