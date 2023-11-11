@@ -4,17 +4,21 @@ import React, { ReactNode } from 'react';
 interface Button {
 	children?: ReactNode;
 	link?: boolean;
-	action?: any;
+	action?: (args?: any) => any;
+	args?: any;
 	href?: string;
 	external?: boolean;
 }
 
-export const Button = ({ children, link, action, href = '#', external }: Button) => {
+export const Button = ({ children, link, action, args, href = '#', external }: Button) => {
+	const onClick = () => {
+		action!(args);
+	};
 	return link ? (
 		<Link href={href} target={external ? '_blank' : '_self'}>
 			{children}
 		</Link>
 	) : (
-		<button onClick={() => action()}>{children}</button>
+		<button onClick={onClick}>{children}</button>
 	);
 };
