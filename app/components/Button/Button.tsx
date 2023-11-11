@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { ReactNode } from 'react';
 
 interface Button {
@@ -5,8 +6,15 @@ interface Button {
 	link?: boolean;
 	action?: any;
 	href?: string;
+	external?: boolean;
 }
 
-export const Button = ({ children, link, action, href }: Button) => {
-	return link ? <a href={href}>{children}</a> : <button onClick={() => action()}>{children}</button>;
+export const Button = ({ children, link, action, href = '#', external }: Button) => {
+	return link ? (
+		<Link href={href} target={external ? '_blank' : '_self'}>
+			{children}
+		</Link>
+	) : (
+		<button onClick={() => action()}>{children}</button>
+	);
 };
