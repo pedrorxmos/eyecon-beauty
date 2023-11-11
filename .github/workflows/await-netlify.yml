@@ -1,7 +1,6 @@
 name: Check Netlify Deployment
 
 on:
-  push:
   pull_request:
       
 jobs:
