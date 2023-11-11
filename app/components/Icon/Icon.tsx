@@ -1,10 +1,14 @@
 import svgContent from './svg-content';
+import './Icon.scss';
 
 interface Icon {
 	name: string;
+	size?: string;
+	weight?: string;
+	title?: string;
 }
 
-export const Icon = ({ name }: Icon) => {
+export const Icon = ({ name, size = 'medium', weight = 'regular', title }: Icon) => {
 	return (
 		<>
 			<svg
@@ -17,8 +21,9 @@ export const Icon = ({ name }: Icon) => {
 				stroke-width="2"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				className={`feather feather-${name}`}
+				className={`icon ${size} ${weight} feather feather-${name}`}
 			>
+				{title && <title>{title}</title>}
 				{svgContent(name)}
 			</svg>
 		</>
