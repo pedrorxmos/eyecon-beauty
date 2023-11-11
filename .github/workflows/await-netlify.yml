@@ -12,8 +12,8 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Wait for Netlify Deploy
-      uses: kukiron/wait-for-netlify-deploy@v1.2.1
-      id: waitForDeployment
+        uses: kukiron/wait-for-netlify-deploy@v1.2.1
+        id: waitForDeployment
         with:
           site_name: ${{ secrets.NETLIFY_SITE_NAME }}
           pr_number: ${{ steps.findPR.outputs.pr }} # use for `e2e_tests` branch
