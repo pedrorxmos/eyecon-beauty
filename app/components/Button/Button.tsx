@@ -20,14 +20,15 @@ interface Button {
 	text?: boolean;
 	uppercase?: boolean;
 	black?: boolean;
+	float?: boolean;
 }
 
-export const Button = ({ children, link, action, args, href = '#', external, size = 'medium', type = 'main', style = 'fill', spaced, text, uppercase, black }: Button) => {
+export const Button = ({ children, link, action, args, href = '#', external, size = 'medium', type = 'main', style = 'fill', spaced, text, uppercase, black, float }: Button) => {
 	const onClick = () => {
 		action!(args);
 	};
 
-	const className = `button ${size} ${type} ${style} ${text ? 'text-button' : ''} ${spaced ? 'spaced' : ''} ${uppercase ? 'uppercase' : ''} ${black ? 'black-text' : ''}`.trim().replaceAll(/\s+/g, ' ');
+	const className = `button ${size} ${type} ${style} ${text ? 'text-button' : ''} ${spaced ? 'spaced' : ''} ${uppercase ? 'uppercase' : ''} ${black ? 'black-text' : ''} ${float ? 'float' : ''}`.trim().replaceAll(/\s+/g, ' ');
 	return link ? (
 		<Link href={href} className={className} target={external ? '_blank' : '_self'}>
 			{children}

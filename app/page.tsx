@@ -16,37 +16,43 @@ export default function Home() {
 			<Icon name="shopping-bag" size="large" weight="thick" />
 			<br />
 			<br />
-			<Button link href="https://google.es" external>
+			<Button link href="https://google.es" external uppercase>
 				<span>Add to cart</span>
 				<Icon name="plus" weight="thick" size="medium" />
 			</Button>
 			<Button link action={testAction} args="valueeee" style="outline" uppercase>
-				Test Action
+				<span>Add to cart</span>
+				<Icon name="plus" weight="thick" size="medium" />
 			</Button>
 			<Button action={testAction} args="valueeee" style="white" uppercase>
-				Test Action
+				<span>Add to cart</span>
+				<Icon name="plus" weight="thick" size="medium" />
 			</Button>
 			<br />
-			<Button link href="https://google.es" type="primary" external>
+			<Button link href="https://google.es" type="primary" external uppercase>
 				<span>Add to cart</span>
 				<Icon name="plus" weight="thick" size="medium" />
 			</Button>
 			<Button link action={testAction} args="valueeee" style="outline" type="primary" uppercase>
-				Test Action
+				<span>Add to cart</span>
+				<Icon name="plus" weight="thick" size="medium" />
 			</Button>
 			<Button action={testAction} args="valueeee" style="white" type="primary" uppercase>
-				Test Action
+				<span>Add to cart</span>
+				<Icon name="plus" weight="thick" size="medium" />
 			</Button>
 			<br />
-			<Button link href="https://google.es" type="secondary" external>
+			<Button link href="https://google.es" type="secondary" external uppercase>
 				<span>Add to cart</span>
 				<Icon name="plus" weight="thick" size="medium" />
 			</Button>
 			<Button link action={testAction} args="valueeee" style="outline" type="secondary" uppercase>
-				Test Action
+				<span>Add to cart</span>
+				<Icon name="plus" weight="thick" size="medium" />
 			</Button>
 			<Button action={testAction} args="valueeee" style="white" type="secondary" uppercase>
-				Test Action
+				<span>Add to cart</span>
+				<Icon name="plus" weight="thick" size="medium" />
 			</Button>
 
 			<br />
@@ -67,6 +73,37 @@ export default function Home() {
 			</Button>
 			<Button link href="#" type="secondary" text black>
 				Text-button
+			</Button>
+
+			<br />
+			<Button float type='main' style='fill'>
+				<Icon name='arrow-up' />
+			</Button>
+			<Button float type='main' style='outline'>
+				<Icon name='arrow-up' />
+			</Button>
+			<Button float type='main' style='white'>
+				<Icon name='arrow-up' />
+			</Button>
+
+			<Button float type='primary' style='fill'>
+				<Icon name='arrow-up' />
+			</Button>
+			<Button float type='primary' style='outline'>
+				<Icon name='arrow-up' />
+			</Button>
+			<Button float type='primary' style='white'>
+				<Icon name='arrow-up' />
+			</Button>
+
+			<Button float type='secondary' style='fill'>
+				<Icon name='arrow-up' />
+			</Button>
+			<Button float type='secondary' style='outline'>
+				<Icon name='arrow-up' />
+			</Button>
+			<Button float type='secondary' style='white'>
+				<Icon name='arrow-up' />
 			</Button>
 		</main>
 	);

@@ -40,16 +40,28 @@
   &.small {
     padding: 8px 12px;
     font-size: 0.875rem;
+
+    &.outline  {
+      padding: 7px 11px;
+    }
   }
 
   &.medium {
     padding: 10px 16px;
     font-size: 1rem;
+
+    &.outline  {
+      padding: 9px 15px;
+    }
   }
 
   &.large {
     padding: 12px 24px;
     font-size: 1.25px;
+
+    &.outline  {
+      padding: 11px 23px;
+    }
   }
 
   &.text-button {
@@ -274,5 +286,20 @@
     justify-content: space-between;
   }
 
+
+  &.float {
+    border-radius: 50%;
+    &.small {
+      padding: 8px;
+    }
+  
+    &.medium {
+      padding: 10px;
+    }
+  
+    &.large {
+      padding: 12px;
+    }
+  }
  
 }
