@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { ReactNode } from 'react';
 import './Button.scss'
+import { strip } from '@/app/helpers';
 
 interface Button {
 	children?: ReactNode;
@@ -27,8 +28,7 @@ export const Button = ({ children, link, action, args, href = '#', external, siz
 	const onClick = () => {
 		action!(args);
 	};
-
-	const className = `button ${size} ${type} ${style} ${text ? 'text-button' : ''} ${spaced ? 'spaced' : ''} ${uppercase ? 'uppercase' : ''} ${black ? 'black-text' : ''} ${float ? 'float' : ''}`.trim().replaceAll(/\s+/g, ' ');
+	const className = strip(`button ${size} ${type} ${style} ${text ? 'text-button' : ''} ${spaced ? 'spaced' : ''} ${uppercase ? 'uppercase' : ''} ${black ? 'black-text' : ''} ${float ? 'float' : ''}`)
 	return link ? (
 		<Link href={href} className={className} target={external ? '_blank' : '_self'}>
 			{children}

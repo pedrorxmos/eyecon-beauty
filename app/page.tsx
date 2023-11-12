@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button, Icon } from './components';
+import { Toggle } from './components/Toggle/Toggle';
 
 export default function Home() {
 	const testAction = (value: string) => {
@@ -76,35 +77,39 @@ export default function Home() {
 			</Button>
 
 			<br />
-			<Button float type='main' style='fill'>
-				<Icon name='arrow-up' />
+			<Button float type="main" style="fill">
+				<Icon name="arrow-up" />
 			</Button>
-			<Button float type='main' style='outline'>
-				<Icon name='arrow-up' />
+			<Button float type="main" style="outline">
+				<Icon name="arrow-up" />
 			</Button>
-			<Button float type='main' style='white'>
-				<Icon name='arrow-up' />
-			</Button>
-
-			<Button float type='primary' style='fill'>
-				<Icon name='arrow-up' />
-			</Button>
-			<Button float type='primary' style='outline'>
-				<Icon name='arrow-up' />
-			</Button>
-			<Button float type='primary' style='white'>
-				<Icon name='arrow-up' />
+			<Button float type="main" style="white">
+				<Icon name="arrow-up" />
 			</Button>
 
-			<Button float type='secondary' style='fill'>
-				<Icon name='arrow-up' />
+			<Button float type="primary" style="fill">
+				<Icon name="arrow-up" />
 			</Button>
-			<Button float type='secondary' style='outline'>
-				<Icon name='arrow-up' />
+			<Button float type="primary" style="outline">
+				<Icon name="arrow-up" />
 			</Button>
-			<Button float type='secondary' style='white'>
-				<Icon name='arrow-up' />
+			<Button float type="primary" style="white">
+				<Icon name="arrow-up" />
 			</Button>
+
+			<Button float type="secondary" style="fill">
+				<Icon name="arrow-up" />
+			</Button>
+			<Button float type="secondary" style="outline">
+				<Icon name="arrow-up" />
+			</Button>
+			<Button float type="secondary" style="white">
+				<Icon name="arrow-up" />
+			</Button>
+
+			<br />
+			<Toggle name="test" action={(value) => console.log('1', value)} />
+			<Toggle name="test" action={(value) => console.log('2', value)} checked />
 		</main>
 	);
 }
