@@ -18,6 +18,7 @@
   position: relative;
   overflow: hidden;
   z-index: 0;
+  @include prefix(transition, (color 0.3s ease-in-out));
 
   &:before {
     content: '';
@@ -28,7 +29,7 @@
     right: 0;
     height: 100%;
     z-index: 0;
-    @include prefix(transition, top 0.3s ease-in-out);
+    @include prefix(transition, (top 0.3s ease-in-out));
     z-index: -1;
   }
 
@@ -51,19 +52,216 @@
     font-size: 1.25px;
   }
 
+  &.text-button {
+    padding: 0;
+    background: none;
+    border: none;
+    margin-bottom: 2px;
+
+    &:before {
+      height: 50%;
+      @include prefix(transition, (top 0.15s ease-in-out));
+    }
+
+    &:hover:before {
+      top: 50%;
+    }
+  }
+
   &.main {
     &.fill {
       background: $pink;
-      border: 1px solid $pink;
       color: $purewhite;
-      @include prefix(transition, color 0.3s ease-in-out);
+      border: none;
 
       &:hover {
-        color: darken($pink, 20)
+        color: darken($pink, 20);
       }
 
       &:before {
         background: lighten($pink, 20);
+      }
+    }
+
+    &.outline {
+      background: transparent;
+      color: $pink;
+      border: 1px solid $pink;
+
+      &:hover {
+        color: $purewhite;
+      }
+
+      &:before {
+        background: $pink;
+      }
+    }
+
+    &.white {
+      background: $white;
+      color: $pink;
+      border: none;
+
+      &:hover {
+        color: $purewhite;
+      }
+
+      &:before {
+        background: $pink;
+      }
+    }
+
+    &.text-button {
+      padding: 0;
+      background: none;
+      border: none;
+      color: $pink;
+
+      &:hover {
+        color: darken($pink, 20);
+      }
+
+      &.black-text {
+        color: $black;
+        &:hover {
+          color: $black;
+        }
+      }
+
+      &:before {
+        background: lighten($pink, 20);
+      }
+    }
+  }
+
+  &.primary {
+    &.fill {
+      background: $blue;
+      color: $purewhite;
+      border: none;
+
+      &:hover {
+        color: darken($blue, 10);
+      }
+
+      &:before {
+        background: lighten($blue, 30);
+      }
+    }
+
+    &.outline {
+      background: transparent;
+      color: $blue;
+      border: 1px solid $blue;
+
+      &:hover {
+        color: $purewhite;
+      }
+
+      &:before {
+        background: $blue;
+      }
+    }
+
+    &.white {
+      background: $white;
+      color: $blue;
+      border: none;
+
+      &:hover {
+        color: $purewhite;
+      }
+
+      &:before {
+        background: $blue;
+      }
+    }
+
+    &.text-button {
+      padding: 0;
+      background: none;
+      border: none;
+      color: $blue;
+
+      &:hover {
+        color: darken($blue, 10);
+      }
+
+      &.black-text {
+        color: $black;
+        &:hover {
+          color: $black;
+        }
+      }
+
+      &:before {
+        background: lighten($blue, 30);
+      }
+    }
+  }
+
+  &.secondary {
+    &.fill {
+      background: $black;
+      color: $purewhite;
+      border: none;
+
+      &:hover {
+        color: darken($black, 20);
+      }
+
+      &:before {
+        background: lighten($black, 60);
+      }
+    }
+
+    &.outline {
+      background: transparent;
+      color: $black;
+      border: 1px solid $black;
+
+      &:hover {
+        color: $purewhite;
+      }
+
+      &:before {
+        background: $black;
+      }
+    }
+
+    &.white {
+      background: $white;
+      color: $black;
+      border: none;
+
+      &:hover {
+        color: $purewhite;
+      }
+
+      &:before {
+        background: $black;
+      }
+    }
+
+    &.text-button {
+      padding: 0;
+      background: none;
+      border: none;
+      color: $black;
+
+      &:hover {
+        color: $black;
+      }
+
+      &.black-text {
+        color: $black;
+        &:hover {
+          color: $black;
+        }
+      }
+
+      &:before {
+        background: lighten($black, 60);
       }
     }
   }
@@ -76,9 +274,5 @@
     justify-content: space-between;
   }
 
-  &.text-button {
-    padding: 0;
-    background: none;
-    border: none;
-  }
+ 
 }
