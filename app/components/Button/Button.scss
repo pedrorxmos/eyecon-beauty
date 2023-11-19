@@ -290,14 +290,26 @@
 		border-radius: 50%;
 		&.small {
 			padding: 8px;
+
+      &.outline {
+        padding: 7px;
+      }
 		}
 
 		&.medium {
 			padding: 10px;
+
+      &.outline {
+        padding: 9px;
+      }
 		}
 
 		&.large {
 			padding: 12px;
+
+      &.outline {
+        padding: 11px;
+      }
 		}
 	}
 }
