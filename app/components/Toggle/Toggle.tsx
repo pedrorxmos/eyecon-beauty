@@ -1,17 +1,17 @@
 import { strip } from '@/app/helpers';
-import React, { LegacyRef, useRef } from 'react';
+import React, { ChangeEvent } from 'react';
 import './Toggle.scss';
 
-interface Toggle {
+interface ToggleProps {
 	name: string;
 	action: (args?: any) => any;
-	type?: string;
-	size?: string;
+	type?: 'main' | 'primary' | 'secondary';
+	size?: 'small' | 'medium' | 'large';
 	checked?: boolean;
 }
 
-export const Toggle = ({ name, action, type = 'main', size = 'small', checked = false }: Toggle) => {
-	const onChange = (e: any) => {
+export const Toggle = ({ name, action, type = 'main', size = 'small', checked = false }: ToggleProps) => {
+	const onChange = (e: ChangeEvent<HTMLInputElement>) => {
 		action(e.target.checked);
 	};
 
