@@ -1,6 +1,6 @@
 import { strip } from '@/app/helpers';
-import React, { ChangeEvent, ChangeEventHandler, useEffect, useRef } from 'react';
-import { InputType } from 'zlib';
+import React, { LegacyRef, useRef } from 'react';
+import './Toggle.scss';
 
 interface Toggle {
 	name: string;
@@ -10,15 +10,11 @@ interface Toggle {
 	checked?: boolean;
 }
 
-export const Toggle = ({ name, action, type = 'main', size = 'medium', checked = false }: Toggle) => {
+export const Toggle = ({ name, action, type = 'main', size = 'small', checked = false }: Toggle) => {
 	const onChange = (e: any) => {
 		action(e.target.checked);
 	};
 
 	const className = strip(`toggle ${type} ${size}`);
-	return (
-		<label htmlFor={`toggle-${name}`} className={className}>
-			<input type="checkbox" name={`toggle-${name}`} id={`toggle-${name}`} onChange={(e: any) => onChange(e)} defaultChecked={checked} />
-		</label>
-	);
+	return <input type="checkbox" className={className} name={`toggle-${name}`} id={`toggle-${name}`} onChange={(e: any) => onChange(e)} defaultChecked={checked} />;
 };

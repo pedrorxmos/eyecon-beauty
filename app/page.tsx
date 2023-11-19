@@ -108,8 +108,9 @@ export default function Home() {
 			</Button>
 
 			<br />
-			<Toggle name="test" action={(value) => console.log('1', value)} />
-			<Toggle name="test" action={(value) => console.log('2', value)} checked />
+			<Toggle name="test" action={(value) => console.log('1', value)} size='large' />
+			<Toggle name="test" action={(value) => console.log('1', value)} size='medium' type='primary'/>
+			<Toggle name="test" action={(value) => console.log('2', value)} checked type='secondary' />
 		</main>
 	);
 }
