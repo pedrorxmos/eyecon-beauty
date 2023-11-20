@@ -1,3 +1,8 @@
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
 body {
 	font-family: $font-family;
+	background-color: $white;
 }

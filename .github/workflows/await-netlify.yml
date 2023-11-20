@@ -1,7 +1,6 @@
 name: Check Netlify Deployment
 
 on:
-  push:
   pull_request:
       
 jobs:
@@ -20,4 +19,4 @@ jobs:
           max_timeout: 300
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        timeout-minutes: 1
+        timeout-minutes: 5

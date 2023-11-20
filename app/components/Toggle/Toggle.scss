@@ -1,0 +1,115 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+@import '../../scss/functions';
+
+.toggle {
+	appearance: none;
+	display: block;
+	margin: 0;
+	padding: 0;
+	border-radius: 20px;
+	position: relative;
+	@include prefix(transition, (background-color 0.3s ease-in-out));
+	cursor: pointer;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		@include prefix(transform, (translateY(-50%)));
+		margin: 0 2px;
+		border-radius: 50%;
+		background: $purewhite;
+		@include prefix(transition, (left 0.3s ease-in-out));
+	}
+
+	&.small {
+		width: 30px;
+		height: 14px;
+
+		&:before {
+			margin: 0 3px;
+			height: 9px;
+			width: 9px;
+		}
+	}
+
+	&.medium {
+		width: 35px;
+		height: 18px;
+
+		&:before {
+			margin: 0 3px;
+			height: 12px;
+			width: 12px;
+		}
+	}
+
+	&.large {
+		width: 40px;
+		height: 22px;
+
+		&:before {
+			margin: 0 4px;
+			height: 16px;
+			width: 16px;
+		}
+	}
+
+	&.main {
+		background-color: lighten($pink, 15);
+
+		&:hover {
+			background-color: lighten($pink, 12);
+		}
+	}
+
+	&.primary {
+		background-color: lighten($blue, 25);
+
+		&:hover {
+			background-color: lighten($blue, 20);
+		}
+	}
+
+	&.secondary {
+		background-color: lighten($black, 50);
+
+		&:hover {
+			background-color: lighten($black, 45);
+		}
+	}
+
+	&:checked {
+		&.main {
+			background-color: $pink;
+		}
+
+		&.primary {
+			background-color: $blue;
+		}
+
+		&.secondary {
+			background-color: $black;
+		}
+
+		&.small {
+			&:before {
+				left: calc(100% - 15px);
+			}
+		}
+
+		&.medium {
+			&:before {
+				left: calc(100% - 18px);
+			}
+		}
+
+		&.large {
+			&:before {
+				left: calc(100% - 23px);
+			}
+		}
+	}
+}
