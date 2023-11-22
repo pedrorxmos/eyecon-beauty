@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button, Icon } from './components';
 import { Toggle } from './components/Toggle/Toggle';
+import Head from 'next/head';
 
 export default function Home() {
 	const testAction = (value: string) => {
@@ -10,6 +11,11 @@ export default function Home() {
 	};
 
 	return (
+		<>
+		<Head>
+        <title>My page title</title>
+				<meta property="og:title" content="My page title" key="title" />
+      </Head>
 		<main>
 			<Link href="/shop">Shop</Link>
 			<Link href="/shop/eyeshadow">Eyeshadow</Link>
@@ -112,5 +118,7 @@ export default function Home() {
 			<Toggle name="test" action={(value) => console.log('1', value)} size='medium' type='primary'/>
 			<Toggle name="test" action={(value) => console.log('2', value)} checked type='secondary' />
 		</main>
+		</>
+		
 	);
 }
