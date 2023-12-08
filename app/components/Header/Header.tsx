@@ -1,17 +1,22 @@
-import React from 'react';
-
-import './Header.scss';
+import React, { CSSProperties, LegacyRef, MutableRefObject, RefObject, useEffect, useRef } from 'react';
 import Link from 'next/link';
+
 import { useDoc } from '@/app/hooks';
-import db from '@/app/firebase/db';
 import { Menu } from '../../interfaces';
 import { Icon } from '..';
+import './Header.scss';
 
 export const Header = async () => {
 	const headerNav = await useDoc('navigation/main-menu');
+
 	return (
 		<header className="header">
-			<div className="header-container">
+			<div className="header--inner max-width">
+				<div className="header--toggle">
+					<button className="header--toggle-action header--icons-ico">
+						<Icon name="menu" />
+					</button>
+				</div>
 				<div className="header--logo">
 					<Link href="/" title="Eyecon Beauty">
 						EYECON BEAUTY
@@ -19,25 +24,25 @@ export const Header = async () => {
 				</div>
 
 				<nav className="header--nav" role="navigation">
-					<ul className="header--nav-list" role="menu">
+					<ul className="header--nav-list" role="menu" data-level="1" >
 						{headerNav.links.map((link: Menu) => (
-							<li className="header--nav-item" aria-label={link.title['en']} key={link.url} role="menuitem">
+							<li className="header--nav-list-item" aria-label={link.title['en']} key={link.url} role="menuitem">
 								<Link href={link.url} className="header--nav-link">
-									{link.title['en']}
+									<span>{link.title['en']}</span>
 								</Link>
 								{link.links && (
-									<ul className="header--nav-sublist" role="menu">
+									<ul className="header--nav-sublist" role="menu" data-level="2">
 										{link.links.map((sublink: Menu) => (
-											<li className="header--nav-subitem" aria-label={sublink.title['en']} key={sublink.url} role="menuitem">
-												<Link href={sublink.url} className="header--nav-sublink">
-													{sublink.title['en']}
+											<li className="header--nav-sublist-item" aria-label={sublink.title['en']} key={sublink.url} role="menuitem">
+												<Link href={sublink.url} className="header--nav-link">
+													<span>{sublink.title['en']}</span>
 												</Link>
 												{sublink.links && (
-													<ul className="header--nav-sublist" role="menu">
+													<ul className="header--nav-sublist" role="menu" data-level="3" >
 														{sublink.links.map((subsublink: Menu) => (
-															<li className="header--nav-subitem" aria-label={subsublink.title['en']} key={subsublink.url} role="menuitem">
-																<Link href={subsublink.url} className="header--nav-sublink">
-																	{subsublink.title['en']}
+															<li className="header--nav-sublist-item" aria-label={subsublink.title['en']} key={subsublink.url} role="menuitem">
+																<Link href={subsublink.url} className="header--nav-link">
+																	<span>{subsublink.title['en']}</span>
 																</Link>
 															</li>
 														))}
@@ -55,24 +60,24 @@ export const Header = async () => {
 				<div className="header--icons">
 					<ul className="header--icons-list" role="list">
 						<li className="header--icons-item" role="listitem">
-							<Link href="/account" className="header--nav-link">
-								<Icon name="user" /> 
-                <span>Log In</span>
+							<Link href="/account" className="header--icons-icon">
+								<Icon name="user" />
+								<span>Log In</span>
 							</Link>
 						</li>
-            <li className="header--icons-item" role="listitem">
-							<button className="header--nav-link">
-								<Icon name="search" /> 
+						<li className="header--icons-item" role="listitem">
+							<button className="header--icons-icon">
+								<Icon name="search" />
 							</button>
 						</li>
-            <li className="header--icons-item" role="listitem">
-							<button className="header--nav-link">
-								<Icon name="heart" /> 
+						<li className="header--icons-item" role="listitem">
+							<button className="header--icons-icon">
+								<Icon name="heart" />
 							</button>
 						</li>
-            <li className="header--icons-item" role="listitem">
-							<button className="header--nav-link">
-								<Icon name="shopping-bag" /> 
+						<li className="header--icons-item" role="listitem">
+							<button className="header--icons-icon">
+								<Icon name="shopping-bag" />
 							</button>
 						</li>
 					</ul>
