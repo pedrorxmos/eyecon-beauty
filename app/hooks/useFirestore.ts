@@ -1,14 +1,15 @@
 import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
 import db from '../firebase/db';
 
-export const useDoc = async (route: string) => {
+export const useDoc = async <T>(route: string): Promise<T> => {
 	const res = await getDoc(doc(db, route));
-	return res.data() || { error: 'There was an error' };
+	const data: Promise<T> = res.data() as Promise<T>;
+	return data;
 };
 
-export const useCollection = async (route: string) => {
+export const useCollection = async <T>(route: string): Promise<T> => {
 	const col = await getDocs(collection(db, route));
 	const res: any = {};
 	col.forEach((item) => (res[item.id] = item.data()));
-	return res || { error: 'There was an error' };
+	return res as Promise<T>;
 };

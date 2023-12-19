@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import { useDoc } from '@/app/hooks';
@@ -8,7 +8,7 @@ import './Header.scss';
 import { NavToggle } from './NavToggle';
 
 export const Header = async () => {
-	const headerNav = await useDoc('navigation/main-menu');
+	const headerNav = await useDoc<Menu>('navigation/main-menu');
 
 	return (
 		<header className="header">
@@ -22,9 +22,9 @@ export const Header = async () => {
 					</Link>
 				</div>
 
-				<nav className="header--nav" role="navigation">
+				<nav className="header--nav" role="navigation" data-open>
 					<ul className="header--nav-list" role="menu" data-level="1">
-						{headerNav.links.map((link: Menu) => (
+						{headerNav.links?.map((link: Menu) => (
 							<li className="header--nav-list-item" aria-label={link.title['en']} key={link.url} role="menuitem">
 								<Link href={link.url} className="header--nav-link">
 									<span>{link.title['en']}</span>
