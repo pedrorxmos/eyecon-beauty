@@ -5,3 +5,9 @@
   -ms-#{$property}: $value;
   #{$property}: $value;
 }
+
+@mixin mq ($query, $size) {
+  @media screen and ($query: $size) {
+    @content
+  }
+}

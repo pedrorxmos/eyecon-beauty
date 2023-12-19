@@ -6,9 +6,10 @@ interface Icon {
 	size?: string;
 	weight?: string;
 	title?: string;
+	className?: string;
 }
 
-export const Icon = ({ name, size = 'medium', weight = 'regular', title }: Icon) => {
+export const Icon = ({ name, size = 'medium', weight = 'regular', title, className }: Icon) => {
 	return (
 		<>
 			<svg
@@ -21,7 +22,7 @@ export const Icon = ({ name, size = 'medium', weight = 'regular', title }: Icon)
 				strokeWidth="2"
 				strokeLinecap="round"
 				strokeLinejoin="round"
-				className={`icon ${size} ${weight} feather feather-${name}`}
+				className={`icon ${size} ${weight} feather feather-${name} ${className}`}
 			>
 				{title && <title>{title}</title>}
 				{svgContent(name)}

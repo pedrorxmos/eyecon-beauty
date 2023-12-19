@@ -106,9 +106,9 @@ const svgContent = (value: string): ReactElement => {
 		),
 		menu: (
 			<>
-				<line x1="3" y1="12" x2="21" y2="12"></line>
-				<line x1="3" y1="6" x2="21" y2="6"></line>
-				<line x1="3" y1="18" x2="21" y2="18"></line>
+				<line className="line1" x1="3" y1="6" x2="21" y2="6"></line>
+				<line className="line2" x1="3" y1="12" x2="21" y2="12"></line>
+				<line className="line3" x1="3" y1="18" x2="21" y2="18"></line>
 			</>
 		),
 		plus: (

@@ -1,10 +1,11 @@
-import React, { CSSProperties, LegacyRef, MutableRefObject, RefObject, useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import { useDoc } from '@/app/hooks';
 import { Menu } from '../../interfaces';
 import { Icon } from '..';
 import './Header.scss';
+import { NavToggle } from './NavToggle';
 
 export const Header = async () => {
 	const headerNav = await useDoc('navigation/main-menu');
@@ -13,9 +14,7 @@ export const Header = async () => {
 		<header className="header">
 			<div className="header--inner max-width">
 				<div className="header--toggle">
-					<button className="header--toggle-action header--icons-ico">
-						<Icon name="menu" />
-					</button>
+					<NavToggle />
 				</div>
 				<div className="header--logo">
 					<Link href="/" title="Eyecon Beauty">
@@ -24,7 +23,7 @@ export const Header = async () => {
 				</div>
 
 				<nav className="header--nav" role="navigation">
-					<ul className="header--nav-list" role="menu" data-level="1" >
+					<ul className="header--nav-list" role="menu" data-level="1">
 						{headerNav.links.map((link: Menu) => (
 							<li className="header--nav-list-item" aria-label={link.title['en']} key={link.url} role="menuitem">
 								<Link href={link.url} className="header--nav-link">
@@ -38,7 +37,7 @@ export const Header = async () => {
 													<span>{sublink.title['en']}</span>
 												</Link>
 												{sublink.links && (
-													<ul className="header--nav-sublist" role="menu" data-level="3" >
+													<ul className="header--nav-sublist" role="menu" data-level="3">
 														{sublink.links.map((subsublink: Menu) => (
 															<li className="header--nav-sublist-item" aria-label={subsublink.title['en']} key={subsublink.url} role="menuitem">
 																<Link href={subsublink.url} className="header--nav-link">
