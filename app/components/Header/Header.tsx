@@ -28,13 +28,21 @@ export const Header = async () => {
 							<li className="header--nav-list-item" aria-label={link.title['en']} key={link.url} role="menuitem">
 								<Link href={link.url} className="header--nav-link">
 									<span>{link.title['en']}</span>
+									{
+										link.links && 
+										<Icon name="chevron-down"/>
+									}
 								</Link>
 								{link.links && (
 									<ul className="header--nav-sublist" role="menu" data-level="2">
 										{link.links.map((sublink: Menu) => (
 											<li className="header--nav-sublist-item" aria-label={sublink.title['en']} key={sublink.url} role="menuitem">
-												<Link href={sublink.url} className="header--nav-link">
+												<Link href={sublink.url} className="header--nav-link header--nav-sublist-item-link">
 													<span>{sublink.title['en']}</span>
+													{
+														sublink.links && 
+														<Icon name="chevron-down"/>
+													}
 												</Link>
 												{sublink.links && (
 													<ul className="header--nav-sublist" role="menu" data-level="3">
@@ -53,6 +61,26 @@ export const Header = async () => {
 								)}
 							</li>
 						))}
+					</ul>
+					<ul className='header--nav-mobile-actions' role="menu" >
+						<li className="header--nav-mobile-actions-item" role="listitem">
+							<Link href="/account" className="header--nav-mobile-actions-icon">
+								<Icon name="user" />
+								<span>Log In</span>
+							</Link>
+						</li>
+						<li className="header--nav-mobile-actions-item" role="listitem">
+							<button className="header--nav-mobile-actions-icon">
+								<span>English</span>
+								<Icon name="chevron-down" />
+							</button>
+						</li>
+						<li className="header--nav-mobile-actions-item" role="listitem">
+							<button className="header--nav-mobile-actions-icon">
+								<span>$ USD</span>
+								<Icon name="chevron-down" />
+							</button>
+						</li>
 					</ul>
 				</nav>
 
