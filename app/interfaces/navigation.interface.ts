@@ -1,7 +1,12 @@
 export interface Menu {
+  links: Links[] | [];
+  error?: string
+}
+
+export interface Links {
   title: Title;
   url: string;
-  links: Menu[] | null
+  links?: Links[] | null
 }
 
 interface Title {

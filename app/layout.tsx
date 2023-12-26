@@ -1,4 +1,4 @@
-import { Header } from './components';
+import { Navbar } from './components';
 import './scss/global.scss';
 import type { Metadata } from 'next';
 
@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en">
 			<body>
-				<Header />
+				<Navbar />
 				{children}
 			</body>
 		</html>
