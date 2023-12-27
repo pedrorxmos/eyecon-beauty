@@ -4,7 +4,6 @@ import db from '../firebase/db';
 export const fetchDoc = async <T>(route: string): Promise<T> => {
 	const res = await getDoc(doc(db, route));
 	const data: Promise<T> = res.data() as Promise<T>;
-  console.log(data)
 	return data;
 };
 

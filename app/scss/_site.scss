@@ -8,8 +8,10 @@ body {
 	margin: 0;
 	font-family: $font-family;
 	background-color: $white;
+	background-color: darken($color: $white, $amount: 10);
+
 }
 
 main {
-	margin-top: var(--header-height, 68px);
+	margin-top: var(--navbar-height, 68px);
 }
