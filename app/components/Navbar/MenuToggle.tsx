@@ -4,6 +4,7 @@ import { Icon } from '..';
 import { usePathname } from 'next/navigation';
 
 export const MenuToggle = () => {
+	const pathname = usePathname();
 	const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 		const body = document.querySelector('body');
 		const navbarMenuMobile = document.querySelector('.navbar-menu-mobile');
@@ -39,6 +40,24 @@ export const MenuToggle = () => {
 			window.addEventListener('resize', assignNavbarHeight);
 		}
 	}, []);
+
+	useEffect(() => {
+		const navbarMenuMobile = document.querySelector('.navbar-menu-mobile');
+		const toggle = document.querySelector('.navbar-toggle button');
+		const animations = toggle?.querySelectorAll('polyline animate') as NodeListOf<SVGAnimateElement>;
+		const body = document.querySelector('body');
+		if(navbarMenuMobile?.classList.contains('open')) {
+			navbarMenuMobile?.classList.remove('open');
+			toggle?.classList.remove('open');
+			body?.classList.remove('overflow-hidden');
+			animations.forEach((animation: SVGAnimateElement) => {
+				if (animation.id.includes('close')) {
+					animation.beginElement();
+				}
+			});
+		}
+		
+	}, [pathname]);
 
 	return (
 		<button className="no-style navbar-main-item" onClick={onClick}>

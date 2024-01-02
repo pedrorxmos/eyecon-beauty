@@ -26,27 +26,6 @@ export const MobileButton = ({ link }: MobileButtonProps) => {
 			menu.style.setProperty('--max-height', scrollHeight + 'px');
 			menu.style.setProperty('--mhs', scrollHeight + '');
 		});
-
-		const navbarMenuMobile = document.querySelector('.navbar-menu-mobile');
-		const toggle = document.querySelector('.navbar-toggle button');
-		const animations = toggle?.querySelectorAll('polyline animate') as NodeListOf<SVGAnimateElement>;
-		const body = document.querySelector('body');
-
-		document
-			.querySelector('.navbar')
-			?.querySelectorAll('a')
-			.forEach((a) => {
-				a.addEventListener('click', () => {
-					navbarMenuMobile?.classList.remove('open');
-					toggle?.classList.remove('open');
-					body?.classList.remove('overflow-hidden');
-					animations.forEach((animation: SVGAnimateElement) => {
-						if (animation.id.includes('close')) {
-							animation.beginElement();
-						}
-					});
-				});
-			});
 	}, [link]);
 	return (
 		<button className="menu-link" onClick={onClick}>
