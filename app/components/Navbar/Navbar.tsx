@@ -10,12 +10,28 @@ import { MobileButton } from './mobileButton';
 
 export const Navbar = async () => {
 	const menu: Menu = await fetchDoc<Menu>('navigation/main-menu');
+	const favorites = [
+		{
+			product: 'x'
+		}
+	]
+	const cart = [
+		{
+			product: 'x'
+		},
+		{
+			product: 'y'
+		},
+		{
+			product: 'z'
+		}
+	]
 
 	return (
 		<>
 			<header className="navbar">
 				<div className="navbar-inner max-width">
-					<div className="navbar-toggle">
+					<div className="navbar-toggle hide-large hide-huge">
 						<MenuToggle />
 					</div>
 					<div className="navbar-logo">
@@ -23,7 +39,7 @@ export const Navbar = async () => {
 							Eyecon Beauty
 						</Link>
 					</div>
-					<nav className="navbar-menu">
+					<nav className="navbar-menu hide-small hide-medium">
 						<ul className="menu unlist">
 							{menu?.links.map((link, index) => (
 								<li key={index} className="menu-item navbar-main-item">
@@ -63,26 +79,26 @@ export const Navbar = async () => {
 									<Icon name="search" size="medium" weight="regular" />
 								</button>
 							</li>
-							<li className="list-item action-account">
+							<li className="list-item action-account hide-small hide-medium">
 								<button className="no-style navbar-main-item">
 									<Icon name="user" size="medium" weight="regular" />
 									<span>Log In</span>
 								</button>
 							</li>
 							<li className="list-item action-favorites">
-								<button className="no-style navbar-main-item">
+								<button className={`no-style navbar-main-item ${favorites.length > 0 ? 'count' : ''}`} >
 									<Icon name="heart" size="medium" weight="regular" />
 								</button>
 							</li>
 							<li className="list-item action-cart">
-								<button className="no-style navbar-main-item">
+								<button className={`no-style navbar-main-item ${favorites.length > 0 ? 'count' : ''}`}>
 									<Icon name="shopping-bag" size="medium" weight="regular" />
 								</button>
 							</li>
 						</ul>
 					</div>
 
-					<nav className="navbar-menu-mobile">
+					<nav className="navbar-menu-mobile hide-large hide-huge">
 						<ul className="menu unlist max-width">
 							{menu?.links.map((link, index) => (
 								<li key={index} className="menu-item" data-level="1">

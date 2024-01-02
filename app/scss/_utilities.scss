@@ -23,3 +23,28 @@
 .overflow-hidden {
   overflow: hidden;
 }
+
+@media screen and (max-width: $mq-max-small) {
+  .hide-small {
+    display: none!important;
+  }
+}
+
+@media screen and (min-width: $mq-min-small) and (max-width: $mq-max-medium) {
+  .hide-medium {
+    display: none!important;
+  }
+}
+
+@media screen and (min-width: $mq-min-medium) and (max-width: $mq-max-large) {
+  .hide-large {
+    display: none!important;
+  }
+}
+
+@media screen and (min-width: $mq-min-large) {
+  .hide-huge {
+    display: none!important;
+  }
+}
+

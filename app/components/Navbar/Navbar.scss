@@ -15,14 +15,18 @@
 		display: grid;
 		grid-template-columns: 1fr auto 1fr;
 		align-items: center;
+
+		@media screen and (min-width: $mq-min-medium) {
+			grid-template-columns: auto 1fr auto;
+		}
 	}
 
 	&-menu {
-		display: none;
+		
+	}
 
-		@include mq(min-width, $mq-min-medium) {
-			display: block;
-		}
+	button {
+		color: inherit;
 	}
 
 	&-menu-mobile {
@@ -40,10 +44,6 @@
 
 		&.open {
 			right: 0;
-		}
-
-		@include mq(min-width, $mq-min-medium) {
-			display: none;
 		}
 
 		.menu {
@@ -64,15 +64,16 @@
 				border: none;
 				font-family: $font-family;
 				font-size: 1rem;
-				padding: 0.5rem 0;
+				padding: 0.75rem 0;
+				text-transform: uppercase;
 			}
 
 			[data-level="2"] .menu-link {
-				padding: 0.5rem 1rem;
+				padding: 0.75rem 1rem;
 			}
 
 			[data-level="3"] .menu-link {
-				padding: 0.5rem 2rem;
+				padding: 0.75rem 2rem;
 			}
 
 			&-item {
@@ -161,15 +162,19 @@
 				button {
 					padding-left: 0;
 					padding-right: 0;
-				}
-			}
-		}
+					position: relative;
 
-		.action-account {
-			display: none;
-			
-			@include mq(min-width, $mq-min-medium) {
-				display: block;
+					&.count:before {
+						content: '';
+						position: absolute;
+						top: 10px;
+						right: -6px;
+						background-color: $pink;
+						width: 0.75rem;
+						height: 0.75rem;
+						border-radius: 50%;
+					}
+				}
 			}
 		}
 	}
@@ -177,14 +182,6 @@
 	&-main-item {
 		padding-top: 16px;
 		padding-bottom: 16px;
-	}
-
-	&-toggle {
-		display: block;
-			
-		@include mq(min-width, $mq-min-medium) {
-			display: none;
-		}
 	}
 
 	&-logo {
