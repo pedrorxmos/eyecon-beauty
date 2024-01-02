@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 		default: 'Eyecon Beauty',
 		template: '%s | Eyecon Beauty',
 	},
-	description: 'Eyecon Beauty is a makeup ecommerce specialized in reusable and customizable eyeshadow palettes.',
+	description: 'Eyecon Beauty is a makeup e-commerce specialized in reusable and customizable eyeshadow palettes.',
 	themeColor: '#ffffff',
 	manifest: '/manifest.webmanifest',
 };
