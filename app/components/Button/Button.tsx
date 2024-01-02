@@ -1,3 +1,4 @@
+
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
 
@@ -23,21 +24,22 @@ interface ButtonProps {
 	uppercase?: boolean;
 	black?: boolean;
 	float?: boolean;
+	className?: string;
 }
 
-export const Button = ({ children, link, action, args, href = '#', external, size = 'medium', type = 'main', style = 'fill', spaced, text, uppercase, black, float }: ButtonProps) => {
+export const Button = ({ children, link, action, args, href = '#', external, size = 'medium', type = 'main', style = 'fill', spaced, text, uppercase, black, float, className }: ButtonProps) => {
 	const onClick = () => {
 		action!(args);
 	};
-	const className = strip(
-		`button ${size} ${type} ${style} ${text ? 'text-button' : ''} ${spaced ? 'spaced' : ''} ${uppercase ? 'uppercase' : ''} ${black ? 'black-text' : ''} ${float ? 'float' : ''}`
+	const stylesClass = strip(
+		`button ${size} ${type} ${style} ${text ? 'text-button' : ''} ${spaced ? 'spaced' : ''} ${uppercase ? 'uppercase' : ''} ${black ? 'black-text' : ''} ${float ? 'float' : ''} ${className}`
 	);
 	return link ? (
-		<Link href={href} className={className} target={external ? '_blank' : '_self'}>
+		<Link href={href} className={stylesClass} target={external ? '_blank' : '_self'}>
 			{children}
 		</Link>
 	) : (
-		<button className={className} onClick={onClick}>
+		<button className={stylesClass} onClick={onClick}>
 			{children}
 		</button>
 	);

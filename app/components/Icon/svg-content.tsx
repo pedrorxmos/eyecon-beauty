@@ -106,9 +106,25 @@ const svgContent = (value: string): ReactElement => {
 		),
 		menu: (
 			<>
-				<line className="line1" x1="3" y1="6" x2="21" y2="6"></line>
-				<line className="line2" x1="3" y1="12" x2="21" y2="12"></line>
-				<line className="line3" x1="3" y1="18" x2="21" y2="18"></line>
+				<polyline points="3,6 21,6"></polyline>
+				<polyline points="3,12 21,12"></polyline>
+				<polyline points="3,18 21,18"></polyline>
+			</>
+		),
+		navmenu: (
+			<>
+				<polyline points="3,6 21,6">
+					<animate id="menu-top-open" attributeName="points" keyTimes="0;0.5;1" dur="0.4s" begin="indefinite" fill="freeze" calcMode="linear" values=" 3 6, 21 6; 3 12, 21 12; 6 6, 18 18"></animate>
+					<animate id="menu-top-close" attributeName="points" keyTimes="0;0.5;1" dur="0.4s" begin="indefinite" fill="freeze" calcMode="linear" values="6 6, 18 18 ; 3 12, 21 12; 3 6, 21 6"></animate>
+				</polyline>
+				<polyline points="3,12 21,12">
+					<animate id="menu-center-open" attributeName="points" keyTimes="0;0.5;1" dur="0.4s" begin="indefinite" fill="freeze" calcMode="linear" values=" 3 12, 21 12; 12 12, 12 12; 12 12, 12 12"></animate>
+					<animate id="menu-center-close" attributeName="points" keyTimes="0;0.5;1" dur="0.4s" begin="indefinite" fill="freeze" calcMode="linear" values="12 12, 12 12 ; 12 12, 12 12; 3 12, 21 12"></animate>
+				</polyline>
+				<polyline points="3,18 21,18">
+					<animate id="navmenu-bottom-open" attributeName="points" keyTimes="0;0.5;1" dur="0.4s" begin="indefinite" fill="freeze" calcMode="linear" values=" 3 18, 21 18; 3 12, 21 12; 6 18, 18 6"></animate>
+					<animate id="navmenu-bottom-close" attributeName="points" keyTimes="0;0.5;1" dur="0.4s" begin="indefinite" fill="freeze" calcMode="linear" values="6 18, 18 6 ; 3 12, 21 12; 3 18, 21 18"></animate>
+				</polyline>
 			</>
 		),
 		plus: (
